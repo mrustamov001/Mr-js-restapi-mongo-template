@@ -1,0 +1,66 @@
+### Userlar login qilishi uchun API
+POST http://localhost:7000/login
+Content-Type: application/json
+
+{
+    "username": "odiy-inson",
+    "password": "muhtori2001"
+}
+
+
+### Yangi admin qushish uchun API, faqat SUPER ADMIN uchun
+POST http://localhost:7000/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRkMDM5OGU5ZjY2ZDgyM2ZmMzc2NmFiIiwiaXNfc3VwZXIiOnRydWV9LCJpYXQiOjE2OTEzNjkwNTksImV4cCI6MTY5MTQ1NTQ1OX0.88wrdsgjZttuiq8Oxl36em284nye_U73BVO6UJvJTfo
+Content-Type: application/json
+
+{
+    "first_name": "Muhammadmuhtor",
+    "last_name": "Ahmadaliyev",
+    "username": "odiy-inson",
+    "password": "muhtori2001"
+}
+
+
+### Adminlar ro'yxatini olish uchun API
+GET http://localhost:7000/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRkMDM5OGU5ZjY2ZDgyM2ZmMzc2NmFiIiwiaXNfc3VwZXIiOnRydWV9LCJpYXQiOjE2OTEzNjkwNTksImV4cCI6MTY5MTQ1NTQ1OX0.88wrdsgjZttuiq8Oxl36em284nye_U73BVO6UJvJTfo
+
+
+### Search qilish (?q=palon) first_name ga ko'ra
+GET http://localhost:7000/users/?q=amin
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRkMDM5OGU5ZjY2ZDgyM2ZmMzc2NmFiIiwiaXNfc3VwZXIiOnRydWV9LCJpYXQiOjE2OTEzNjkwNTksImV4cCI6MTY5MTQ1NTQ1OX0.88wrdsgjZttuiq8Oxl36em284nye_U73BVO6UJvJTfo
+
+
+### Sort qilish (?sort[by]=palon&sort[order]=desc) first_name yoki last_name ko'ra
+GET http://localhost:7000/users/?sort[by]=last_name&sort[order]=desc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRkMDM5OGU5ZjY2ZDgyM2ZmMzc2NmFiIiwiaXNfc3VwZXIiOnRydWV9LCJpYXQiOjE2OTEzNjkwNTksImV4cCI6MTY5MTQ1NTQ1OX0.88wrdsgjZttuiq8Oxl36em284nye_U73BVO6UJvJTfo
+
+
+### Filterlash (filters[is_deleted]=true) is_deleted, is_super maydonlariga ko'ra
+GET http://localhost:7000/users/?filters[is_deleted]=false
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRkMDM5OGU5ZjY2ZDgyM2ZmMzc2NmFiIiwiaXNfc3VwZXIiOnRydWV9LCJpYXQiOjE2OTEzNjkwNTksImV4cCI6MTY5MTQ1NTQ1OX0.88wrdsgjZttuiq8Oxl36em284nye_U73BVO6UJvJTfo
+
+
+### Users ro'yhatini paginatsiyalash
+GET http://localhost:7000/users/?page[offset]=2&page[limit]=2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRkMDM5OGU5ZjY2ZDgyM2ZmMzc2NmFiIiwiaXNfc3VwZXIiOnRydWV9LCJpYXQiOjE2OTEzNjkwNTksImV4cCI6MTY5MTQ1NTQ1OX0.88wrdsgjZttuiq8Oxl36em284nye_U73BVO6UJvJTfo
+
+
+### Bitta adminni ko'rish uchun API
+GET http://localhost:7000/users/64d03f432b6a4d118c2b1f6e
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRkMDM5OGU5ZjY2ZDgyM2ZmMzc2NmFiIiwiaXNfc3VwZXIiOnRydWV9LCJpYXQiOjE2OTEzNjkwNTksImV4cCI6MTY5MTQ1NTQ1OX0.88wrdsgjZttuiq8Oxl36em284nye_U73BVO6UJvJTfo
+
+
+### Adminning ma'lumotini tahrirlash uchun API, faqat SUPER ADMIN uchun
+PATCH http://localhost:7000/users/64d0398e9f66d823ff3766ab
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRkMDNmNDMyYjZhNGQxMThjMmIxZjZlIiwiaXNfc3VwZXIiOmZhbHNlfSwiaWF0IjoxNjkxMzcwODEwLCJleHAiOjE2OTE0NTcyMTB9.Wpg6wXFbuyaWlYne-5I6W2SiJMQdRKcSLYQKGvonG8I
+Content-Type: application/json
+
+{
+    "first_name": "Super Admin"
+}
+
+
+### Adminni o'chirish uchun API, faqat SUPER ADMIN uchun
+DELETE http://localhost:7000/users/64d0398e9f66d823ff3766ab
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRkMDM5OGU5ZjY2ZDgyM2ZmMzc2NmFiIiwiaXNfc3VwZXIiOnRydWV9LCJpYXQiOjE2OTEzNjkwNTksImV4cCI6MTY5MTQ1NTQ1OX0.88wrdsgjZttuiq8Oxl36em284nye_U73BVO6UJvJTfo
