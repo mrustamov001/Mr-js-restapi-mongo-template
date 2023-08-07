@@ -3,7 +3,7 @@ const config = require("../shared/config");
 
 module.exports = function () {
     return mongoose
-        .connect(`mongodb://${config.db.host}/${config.db.name}`, {
+        .connect(`mongodb://127.0.0.1/${config.db.name}`, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         })
