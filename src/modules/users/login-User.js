@@ -7,11 +7,11 @@ const config = require("../../shared/config");
 const loginUser = async ({ username, password }) => {
     const existing = await User.findOne({ username, is_deleted: false });
     if (!existing)
-        throw new UnauthorizedError(`Unauthorized ${username} ${password}`);
+        throw new UnauthorizedError(`Unauthorized ${username} ${password}1`);
 
     const match = await compare(password, existing.password);
     if (!match)
-        throw new UnauthorizedError(`Unauthorized ${username} ${password}`);
+        throw new UnauthorizedError(`Unauthorized ${username} ${password}2`);
 
     const token = jwt.sign(
         { user: { id: existing._id, is_super: existing.is_super } },

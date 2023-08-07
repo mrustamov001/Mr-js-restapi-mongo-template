@@ -104,6 +104,9 @@ const patchUser = async (req, res, next) => {
     try {
         httpValidator({ params: req.params, body: req.body }, editUserSchema);
 
+        if (req.user.id == req.params.id)
+            throw new ForbiddenError(`Super_admin cannot edit his profile`);
+
         const result = await edituser({ id: req.params.id, ...req.body });
 
         res.status(200).json({

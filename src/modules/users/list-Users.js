@@ -10,7 +10,6 @@ const listUsers = async ({
     let sorting = {};
 
     if (q) filter.first_name = { $regex: new RegExp(q, "i") };
-    if (q) filter.last_name = { $regex: new RegExp(q, "i") };
     if (filters) filter = filters;
     if (sort.by == "first_name")
         sorting = sort.order == "asc" ? { first_name: 1 } : { first_name: -1 };
